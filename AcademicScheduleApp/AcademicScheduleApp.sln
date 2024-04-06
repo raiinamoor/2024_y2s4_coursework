@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcademicScheduleApp.Server", "AcademicScheduleApp.Server\AcademicScheduleApp.Server.csproj", "{BC75F068-3BFE-4D02-A4D7-0E7EA259E41C}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "academicscheduleapp.client", "academicscheduleapp.client\academicscheduleapp.client.esproj", "{212FC354-5F4D-40A3-84D7-12E6D0E588FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC75F068-3BFE-4D02-A4D7-0E7EA259E41C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC75F068-3BFE-4D02-A4D7-0E7EA259E41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC75F068-3BFE-4D02-A4D7-0E7EA259E41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC75F068-3BFE-4D02-A4D7-0E7EA259E41C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{212FC354-5F4D-40A3-84D7-12E6D0E588FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{212FC354-5F4D-40A3-84D7-12E6D0E588FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{212FC354-5F4D-40A3-84D7-12E6D0E588FF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{212FC354-5F4D-40A3-84D7-12E6D0E588FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{212FC354-5F4D-40A3-84D7-12E6D0E588FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{212FC354-5F4D-40A3-84D7-12E6D0E588FF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A28717E9-1D66-4AAD-9442-89E8B19731DB}
+	EndGlobalSection
+EndGlobal
