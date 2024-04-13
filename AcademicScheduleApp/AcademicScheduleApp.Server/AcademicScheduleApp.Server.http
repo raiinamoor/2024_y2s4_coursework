@@ -1,6 +1,6 @@
 @AcademicScheduleApp.Server_HostAddress = http://localhost:5222
 
-GET {{AcademicScheduleApp.Server_HostAddress}}/weatherforecast/
+GET {{AcademicScheduleApp.Server_HostAddress}}/schedule/
 Accept: application/json
 
 ###
