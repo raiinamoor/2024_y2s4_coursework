@@ -1,5 +1,14 @@
+import { useEffect, useState } from "react";
 import { HourLine } from "./HourLine";
+import { Class, daysOfWeek } from "../Interfaces";
 export function Timetable() {
+    const [classes, setClasses] = useState<Class[]>([]);
+
+    // наполнение таблицы данными
+    useEffect(() => {
+        populateTimetable('221-3710');
+    }, [])
+
     const content = (classes === undefined)
     ?   <p>Загрузка...</p>
     :   <>
@@ -40,5 +49,12 @@ export function Timetable() {
     return (
         <>{content}</>
     )
+
+    async function populateTimetable(group:string) {
+        await fetch(`schedule?group=${group}`)
+        .then(res => res.json())
+        .then(data => setClasses(data))
+        console.log('Populated table with data: ', group)
+    }
 }
 
