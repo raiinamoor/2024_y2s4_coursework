@@ -5,6 +5,16 @@
 :root {
   background-color: #242424;
 }
+.card {
+  display: flex;
+  flex-flow: column;
+  
+  width: 170px;
+  border-radius: 0.5rem;
+  opacity: 0.35;
+  justify-self: center;
+  position: absolute;
+}
 
 .hour-line {
   width: 100dvw;
