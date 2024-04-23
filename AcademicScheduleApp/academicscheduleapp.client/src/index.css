@@ -6,3 +6,9 @@
   background-color: #242424;
 }
 
+.hour-line {
+  width: 100dvw;
+  height: 0.125rem;
+  --tw-bg-opacity: 1;
+  background-color: #242424;
+}
