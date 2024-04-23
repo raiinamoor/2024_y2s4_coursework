@@ -5,6 +5,23 @@
 :root {
   background-color: #242424;
 }
+
+.table {
+  background-color: #3f3f44
+}
+
+.table-header {
+  background-color: #55555b
+}
+
+.week-header {
+  margin: 2;
+  align-self: center;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .card {
   display: flex;
   flex-flow: column;
