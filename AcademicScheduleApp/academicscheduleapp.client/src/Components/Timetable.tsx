@@ -1,17 +1,36 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { HourLine } from "./HourLine";
 import { Class, daysOfWeek } from "../Interfaces";
 export function Timetable() {
+    const [input, setInput] = useState<string>('221-3710');
     const [classes, setClasses] = useState<Class[]>([]);
+    const [group, setGroup] = useState<string>(input);
 
     // наполнение таблицы данными
     useEffect(() => {
-        populateTimetable('221-3710');
-    }, [])
+        populateTimetable(group);
+    }, [group])
+
+    // нажатие кнопки для обновления распиcания
+    const handleKeyDown = (event:any) => {
+        if (event.key === 'Enter') {
+            setGroup(input);
+        }
+    }
+
+    // обработка ввода
+    const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
+        setInput(e.target.value)
+    }
 
     const content = (classes === undefined)
     ?   <p>Загрузка...</p>
     :   <>
+        <input
+            onChange={handleChange} value={input}
+            onKeyDown={handleKeyDown}>
+        </input>
+
         <div className="table m-8 min-w-[1100px] rounded-lg  bg-gray-600 pl">
             <div className="table-header grid rounded-t-lg h-[80px] grid-cols-6 bg-gray-700 pl-10">
                 <div className="week-header">Пн</div>
