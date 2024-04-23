@@ -1,10 +1,15 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { HourLine } from "./HourLine";
+import { DayColumn } from "./DayColumn";
 import { Class, daysOfWeek } from "../Interfaces";
+import { CardDetails } from "./CardDetails";
+
 export function Timetable() {
     const [input, setInput] = useState<string>('221-3710');
     const [classes, setClasses] = useState<Class[]>([]);
     const [group, setGroup] = useState<string>(input);
+    const [details, setDetails] = useState<boolean>(false);
+    const [displayedClass, setDisplayedClass] = useState<Class>();
 
     // наполнение таблицы данными
     useEffect(() => {
@@ -22,6 +27,12 @@ export function Timetable() {
     const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value)
     }
+
+    // выбор данных для отображения на CardDetails
+    function showDetails(classId:number) : void {
+        setDisplayedClass(classes?.find(c => c.id === classId))
+        setDetails(!details);
+    } 
 
     const content = (classes === undefined)
     ?   <p>Загрузка...</p>
@@ -59,10 +70,17 @@ export function Timetable() {
 
                 <div className="row-start-1 col-start-1 pl-10">
                     <div className="grid top-[0px] relative grid-cols-6">
+                        <DayColumn clickFn={showDetails} classes={classes} dayOfWeek={daysOfWeek.monday}></DayColumn>
+                        <DayColumn clickFn={showDetails} classes={classes} dayOfWeek={daysOfWeek.tuesday}></DayColumn>
+                        <DayColumn clickFn={showDetails} classes={classes} dayOfWeek={daysOfWeek.wednesday}></DayColumn>
+                        <DayColumn clickFn={showDetails} classes={classes} dayOfWeek={daysOfWeek.thursday}></DayColumn>
+                        <DayColumn clickFn={showDetails} classes={classes} dayOfWeek={daysOfWeek.friday}></DayColumn>
+                        <DayColumn clickFn={showDetails} classes={classes} dayOfWeek={daysOfWeek.saturday}></DayColumn>
                     </div>
                 </div>
             </div>
         </div>
+        {details && <CardDetails thisClass={displayedClass!} clickFn={showDetails}/>}
         </>
     
     return (
