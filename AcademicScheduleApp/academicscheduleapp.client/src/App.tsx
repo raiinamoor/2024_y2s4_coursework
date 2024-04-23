@@ -1,8 +1,13 @@
-import { useEffect, useState } from 'react';
 import './App.css';
+import { Timetable } from './Components/Timetable';
 
 function App() {
-    return;
+
+    return ( 
+    <>
+        <Timetable/>
+    </>)
+    
 }
 
 export default App;
