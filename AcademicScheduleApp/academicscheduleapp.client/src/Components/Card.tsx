@@ -1,13 +1,17 @@
 import { Class } from "../Interfaces";
 
-export function Card({ thisClass} : {thisClass:Class}) {
+export function Card({ thisClass, clickFn } : {thisClass:Class, clickFn:CallableFunction}) {
     const startValue = timeToNumber(thisClass.timeBegin)-dayStart;
     const endValue = timeToNumber(thisClass.timeEnd)-dayStart;
     const dur = endValue-startValue;
     const color = colorFromTime(startValue);
     
+    function handleClick() : void {
+        clickFn(thisClass.id);
+    }
+    
     return (
-        <div className="card bg-red-400" style={{top:startValue, height:dur}}>
+        <div className="card bg-red-400" onClick={handleClick} style={{top:startValue, height:dur, backgroundColor:color}}>
             <b className="p-1 truncate left-1">{thisClass.subject.name} ({thisClass.type})</b>
             <p className="p-1 truncate absolute left-1 top-5 text-sm">{thisClass.classroom.type} {thisClass.classroom.name}</p>
             <p className="p-1 absolute left-1 bottom-0 text-sm">{thisClass.dateBegin} - {thisClass.dateEnd}</p>
