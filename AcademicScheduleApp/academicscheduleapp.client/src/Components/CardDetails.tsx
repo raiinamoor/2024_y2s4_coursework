@@ -21,7 +21,11 @@ export function CardDetails( {thisClass, clickFn} : {thisClass:Class, clickFn:Ca
                 <p className="p-6 absolute" style={{top:'20%'}}>
                     {thisClass.classroom.type} {thisClass.classroom.name}
                 </p>
-                <p className="p-6 absolute top-1/2">Преподаватели</p>
+                <p className="p-6 absolute top-1/2">
+                    {thisClass.professors?.map(p => 
+                        `${p.lastName} ${p.firstName[0]}. ${p.secondName[0]}.`
+                    ).join(", ")}
+                </p>
             </div>
         </div>)
 

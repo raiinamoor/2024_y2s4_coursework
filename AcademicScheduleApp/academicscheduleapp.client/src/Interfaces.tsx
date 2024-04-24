@@ -9,12 +9,19 @@ export interface Classroom {
     type: string;
 }
 
+export interface Professor {
+    firstName: string;
+    secondName: string;
+    lastName: string;
+}
+
 export interface Class {
     id: number;
     type: string;
     dayOfWeek: daysOfWeek;
     subject: Subject;
     classroom: Classroom
+    professors: Professor[];
     timeBegin: string;
     timeEnd: string;
     dateBegin: string;

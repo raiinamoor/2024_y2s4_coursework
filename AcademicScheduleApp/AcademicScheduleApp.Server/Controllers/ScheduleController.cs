@@ -24,6 +24,7 @@ namespace AcademicScheduleApp.Server.Controllers
                             c.DateEnd >= DateOnly.FromDateTime(DateTime.Now))
                 .Include(c => c.Subject)
                 .Include(c => c.Classroom)
+                .Include(c => c.Professors)
                 .ToArray();
 
             return classes;
