@@ -88,7 +88,7 @@ export function Timetable() {
     )
 
     async function populateTimetable(group:string) {
-        await fetch(`schedule?group=${group}`)
+        await fetch(`schedule/GetClasses?group=${group}`)
         .then(res => res.json())
         .then(data => setClasses(data))
         console.log('Populated table with data: ', group)
