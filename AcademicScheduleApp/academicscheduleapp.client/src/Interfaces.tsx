@@ -15,6 +15,12 @@ export interface Professor {
     lastName: string;
 }
 
+export interface StudentGroup {
+    number: string;
+    year: string;
+    degree: string;
+}
+
 export interface Class {
     id: number;
     type: string;
