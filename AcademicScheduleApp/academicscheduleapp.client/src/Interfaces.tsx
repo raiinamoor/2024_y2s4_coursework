@@ -28,6 +28,7 @@ export interface Class {
     subject: Subject;
     classroom: Classroom
     professors: Professor[];
+    studentGroup: StudentGroup;
     timeBegin: string;
     timeEnd: string;
     dateBegin: string;
