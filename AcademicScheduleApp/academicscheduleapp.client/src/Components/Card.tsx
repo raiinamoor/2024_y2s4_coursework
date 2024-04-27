@@ -11,7 +11,7 @@ export function Card({ thisClass, clickFn } : {thisClass:Class, clickFn:Callable
     }
     
     return (
-        <div className="card bg-red-400" onClick={handleClick} style={{top:startValue, height:dur, backgroundColor:color}}>
+        <div className="card ease-in-out duration-200 hover:opacity-100" onClick={handleClick} style={{top:startValue, height:dur, backgroundColor:color}}>
             <b className="p-1 truncate left-1">{thisClass.subject.name} ({thisClass.type})</b>
             <p className="p-1 truncate absolute left-1 top-5 text-sm">{thisClass.classroom.type} {thisClass.classroom.name}</p>
             <p className="p-1 absolute left-1 bottom-0 text-sm">{thisClass.dateBegin} - {thisClass.dateEnd}</p>
