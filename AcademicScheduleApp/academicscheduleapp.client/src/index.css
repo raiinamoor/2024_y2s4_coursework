@@ -23,9 +23,8 @@
 }
 
 .card {
-  display: flex;
-  flex-flow: column;
-  
+  display: block;
+  text-align: left;  
   width: 170px;
   border-radius: 0.5rem;
   opacity: 0.6;
