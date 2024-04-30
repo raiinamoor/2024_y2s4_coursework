@@ -46,3 +46,10 @@
   --tw-bg-opacity: 1;
   background-color: #242424;
 }
+
+.input-element {
+  background-color: #3f3f44;
+  color: lightgray;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+}
