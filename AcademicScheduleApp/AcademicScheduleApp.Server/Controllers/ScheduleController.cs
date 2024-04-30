@@ -3,6 +3,7 @@ using AcademicScheduleApp.Model.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace AcademicScheduleApp.Server.Controllers
 {
@@ -11,6 +12,11 @@ namespace AcademicScheduleApp.Server.Controllers
     public class ScheduleController : ControllerBase
     {
         ScheduleContext _context;
+        JsonSerializerOptions jsonOptions = new JsonSerializerOptions()
+        {
+            PropertyNameCaseInsensitive = true
+        };
+        
         public ScheduleController(ScheduleContext context)
         {
             _context = context;
@@ -59,6 +65,28 @@ namespace AcademicScheduleApp.Server.Controllers
             };
 
             return data;
+        }
+        [HttpPost(Name="PostClass")]
+        public IActionResult PostClass([FromBody] JsonValue value)
+        {
+            Class classToAdd;
+
+            if (value is null)
+                return BadRequest("Json value is null");
+
+            try
+            {
+                classToAdd = JsonSerializer.Deserialize<Class>(value, jsonOptions)!;
+            }
+            catch
+            {
+                return BadRequest("Failed to deserialize");
+            }
+
+            _context.Classes.Attach(classToAdd);
+            _context.SaveChanges();
+
+            return Ok();
         }
     }
 }
