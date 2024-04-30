@@ -42,7 +42,7 @@ export function Timetable() {
             onKeyDown={handleKeyDown}>
         </input>
 
-        <div className="table m-8 min-w-[1100px] rounded-lg  bg-gray-600 pl">
+        <div className="table mx-8 min-w-[1100px] rounded-lg bg-gray-600 pl">
             <div className="table-header grid rounded-t-lg h-[80px] grid-cols-6 bg-gray-700 pl-10">
                 <div className="week-header">Пн</div>
                 <div className="week-header">Вт</div>
@@ -52,8 +52,8 @@ export function Timetable() {
                 <div className="week-header">Сб</div>
             </div>
 
-            <div className="grid grid-cols-1 grid-rows-1">
-                <div className="row-start-1 col-start-1 space-y-[58px]">
+            <div className="grid overflow-auto h-[450px] grid-cols-1 grid-rows-1">
+                <div className="pt-[24px] row-start-1 col-start-1 space-y-[58px]">
                     <HourLine>9:00</HourLine>
                     <HourLine>10:00</HourLine>
                     <HourLine>11:00</HourLine>
@@ -68,7 +68,7 @@ export function Timetable() {
                     <HourLine>20:00</HourLine>
                 </div>
 
-                <div className="row-start-1 col-start-1 pl-10">
+                <div className="row-start-1 pt-[24px] col-start-1 pl-10">
                     <div className="grid top-[0px] relative grid-cols-6">
                         <DayColumn clickFn={showDetails} classes={classes} dayOfWeek={daysOfWeek.monday}></DayColumn>
                         <DayColumn clickFn={showDetails} classes={classes} dayOfWeek={daysOfWeek.tuesday}></DayColumn>
