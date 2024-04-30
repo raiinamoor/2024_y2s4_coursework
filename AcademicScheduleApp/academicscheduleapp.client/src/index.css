@@ -53,3 +53,19 @@
   padding: 0.3rem;
   border-radius: 0.5rem;
 }
+
+.button {
+  background-color: #55555b;
+  align-self: center;
+  border-radius: 1rem;
+  width: fit-content;
+  height: fit-content;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}.button:hover {
+  background-color: lightslategray;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
