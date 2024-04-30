@@ -30,6 +30,14 @@ namespace AcademicScheduleApp.Server.Controllers
             return classes;
         }
         [HttpGet]
+        public IEnumerable<Class> GetAllClasses()
+        {
+            return _context.Classes
+                .Include(c => c.Subject)
+                .Include(c => c.StudentGroup)
+                .ToArray();
+        }
+        [HttpGet]
         public Dictionary<string, IEnumerable<object>> GetData()
         {
             var groups = _context.StudentGroups.ToArray();
