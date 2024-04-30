@@ -5,6 +5,15 @@ export interface Option {
     label: string
 }
 
+export const dayOptions:Array<Option> = [
+    ({value: daysOfWeek.monday, label:'Понедельник'}),
+    ({value: daysOfWeek.tuesday, label:'Вторник'}),
+    ({value: daysOfWeek.wednesday, label:'Среда'}),
+    ({value: daysOfWeek.thursday, label:'Четверг'}),
+    ({value: daysOfWeek.friday, label:'Пятница'}),
+    ({value: daysOfWeek.saturday, label:'Суббота'})
+]
+
 export interface Subject {
     name: string;
 }
