@@ -1,5 +1,10 @@
 export enum daysOfWeek {monday=1, tuesday, wednesday, thursday, friday, saturday}
 
+export interface Option {
+    value: any;
+    label: string
+}
+
 export interface Subject {
     name: string;
 }
