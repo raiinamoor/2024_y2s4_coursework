@@ -1,32 +1,25 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { HourLine } from "./HourLine";
 import { DayColumn } from "./DayColumn";
-import { Class, daysOfWeek } from "../Interfaces";
+import { Option, Class, daysOfWeek } from "../Interfaces";
 import { CardDetails } from "./CardDetails";
+import { CustomSelect } from "./CustomSelect";
 
 export function Timetable() {
     const [input, setInput] = useState<string>('221-3710');
+    const [groupOptions, setGroupOptions] = useState<Option[]>([]);
     const [classes, setClasses] = useState<Class[]>([]);
-    const [group, setGroup] = useState<string>(input);
     const [details, setDetails] = useState<boolean>(false);
     const [displayedClass, setDisplayedClass] = useState<Class>();
 
+    useEffect(() => {
+        getGroups();
+    }, [])
+    
     // наполнение таблицы данными
     useEffect(() => {
-        populateTimetable(group);
-    }, [group])
-
-    // нажатие кнопки для обновления распиcания
-    const handleKeyDown = (event:any) => {
-        if (event.key === 'Enter') {
-            setGroup(input);
-        }
-    }
-
-    // обработка ввода
-    const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
-        setInput(e.target.value)
-    }
+        populateTimetable(input);
+    }, [input])
 
     // выбор данных для отображения на CardDetails
     function showDetails(classId:number) : void {
@@ -37,10 +30,7 @@ export function Timetable() {
     const content = (classes === undefined)
     ?   <p>Загрузка...</p>
     :   <>
-        <input
-            onChange={handleChange} value={input}
-            onKeyDown={handleKeyDown}>
-        </input>
+        <CustomSelect placeholder="Номер группы" options={groupOptions} onChange={o => setInput(o.value.number)} isMulti={false}/>
 
         <div className="table mx-8 min-w-[1100px] rounded-lg bg-gray-600 pl">
             <div className="table-header grid rounded-t-lg h-[80px] grid-cols-6 bg-gray-700 pl-10">
@@ -87,11 +77,17 @@ export function Timetable() {
         <>{content}</>
     )
 
-    async function populateTimetable(group:string) {
-        await fetch(`schedule/GetClasses?group=${group}`)
+    function populateTimetable(groupNumber:string) {
+        fetch(`schedule/GetClasses?group=${groupNumber}`)
         .then(res => res.json())
         .then(data => setClasses(data))
-        console.log('Populated table with data: ', group)
+        console.log('Populated table with data: ', groupNumber)
+    }
+    function getGroups() {
+        fetch(`schedule/GetAllGroups`)
+        .then(res => res.json())
+        .then(data => setGroupOptions(
+            data.map((g:any) => ({value: g, label: g.number}) as Option)))
     }
 }
 
