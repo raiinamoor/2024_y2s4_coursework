@@ -29,14 +29,14 @@ const dayStart = timeToNumber('9:00:00');
 
 function colorFromTime(time: number) : string {
     if (time < timeToNumber('10:40:00') - dayStart)
-        return '#fca5a5';
+        return '#fdfe8d';
     else if (time < timeToNumber('12:20:00') - dayStart)
-        return '#fde68a';
+        return '#d7eea8';
     else if (time < timeToNumber('13:50:00') - dayStart)
-        return '#d9f99d';
+        return '#bacbb4';
     else if (time < timeToNumber('16:00:00') - dayStart)
-        return '#a5f3fc';
+        return '#b3a8d0';
     else if (time < timeToNumber('19:20:00') - dayStart)
-        return '#818cf8';
-    else return '#c084fc';
+        return '#ae90e2';
+    else return '#aa7ef0';
 }
