@@ -88,5 +88,35 @@ namespace AcademicScheduleApp.Server.Controllers
 
             return Ok();
         }
+        [HttpDelete]
+        public IActionResult DeleteClass([FromBody] JsonValue value)
+        {
+            Class classToRemove;
+
+            if (value is null)
+                return BadRequest("Json value is null");
+
+            try
+            {
+                classToRemove = JsonSerializer.Deserialize<Class>(value, jsonOptions)!;
+            }
+            catch
+            {
+                return BadRequest("Failed to deserialize");
+            }
+
+            try
+            {
+                _context.Remove(_context.Classes
+                                .First(c => c.Id == classToRemove.Id));
+                _context.SaveChanges(); 
+            }
+            catch
+            {
+                return NotFound();
+            }
+
+            return Ok();
+        }
     }
 }
