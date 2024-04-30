@@ -13,7 +13,7 @@ export function Card({ thisClass, clickFn } : {thisClass:Class, clickFn:Callable
     return (
         <div className="card truncate items-start ease-in-out duration-200 hover:opacity-100 p-1" onClick={handleClick} style={{top:startValue, height:dur, backgroundColor:color}}>
             <b className="p-1 left-1">{thisClass.subject.name} ({thisClass.type})</b>
-            <p className="p-1 text-sm">{thisClass.classroom.type} {thisClass.classroom.name}</p>
+            <p className="p-1 text-sm">{thisClass.classroom.name}</p>
             <p className="p-1 text-sm">{thisClass.dateBegin} - {thisClass.dateEnd}</p>
         </div>
     );
