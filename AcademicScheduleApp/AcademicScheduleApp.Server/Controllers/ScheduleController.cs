@@ -38,6 +38,11 @@ namespace AcademicScheduleApp.Server.Controllers
                 .ToArray();
         }
         [HttpGet]
+        public IEnumerable<StudentGroup> GetAllGroups()
+        {
+            return _context.StudentGroups.ToArray();
+        }
+        [HttpGet]
         public Dictionary<string, IEnumerable<object>> GetData()
         {
             var groups = _context.StudentGroups.ToArray();
