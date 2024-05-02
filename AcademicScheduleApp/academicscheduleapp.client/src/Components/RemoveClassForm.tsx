@@ -42,6 +42,12 @@ export function RemoveClassForm() {
             },
             body: JSON.stringify(payload)
         })
+        .then(res => {
+            if (res.status == 200)
+                alert("Занятие удалено из расписания.");
+            if (res.status == 404)
+                alert("Занятие не найдено. Возможно, оно уже было удалено.");
+        })
         getClasses();
     }
 }

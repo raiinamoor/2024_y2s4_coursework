@@ -90,6 +90,8 @@ export function NewClassForm() {
             },
             body: JSON.stringify(payload)
         }).then(res => {
+            if (res.status == 200)
+                alert("Занятие добавлено в расписание.");
             if (res.status == 400)
                 alert("Одно или несколько полей заполнены неверно. Убедитесь, что введённые данные не содержат ошибок.");
         })
