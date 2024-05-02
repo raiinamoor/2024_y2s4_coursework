@@ -33,7 +33,7 @@ export function Timetable() {
         <CustomSelect placeholder="Номер группы" options={groupOptions} onChange={o => setInput(o.value.number)} isMulti={false}/>
 
         <div className="table mx-8 min-w-[1100px] rounded-lg bg-gray-600 pl">
-            <div className="table-header grid rounded-t-lg h-[80px] grid-cols-6 bg-gray-700 pl-10">
+            <div className="table-header grid rounded-t-lg h-[80px] grid-cols-6 bg-gray-700 pl-[75px]">
                 <div className="week-header">Пн</div>
                 <div className="week-header">Вт</div>
                 <div className="week-header">Ср</div>
@@ -58,7 +58,7 @@ export function Timetable() {
                     <HourLine>20:00</HourLine>
                 </div>
 
-                <div className="row-start-1 pt-[24px] col-start-1 pl-10">
+                <div className="row-start-1 pt-[24px] col-start-1 pl-[75px]">
                     <div className="grid top-[0px] relative grid-cols-6">
                         <DayColumn clickFn={showDetails} classes={classes} dayOfWeek={daysOfWeek.monday}></DayColumn>
                         <DayColumn clickFn={showDetails} classes={classes} dayOfWeek={daysOfWeek.tuesday}></DayColumn>
